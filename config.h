@@ -1,9 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
-/* set volume  */
-static const char *mutecmd[] = { "/home/user/.scripts/dwm/set_volume.sh", "mute", NULL };
-static const char *volupcmd[] = { "/home/user/.scripts/dwm/set_volume.sh", "up", NULL };
-static const char *voldowncmd[] = { "/home/user/.scripts/dwm/set_volume.sh", "down", NULL };
+/* set volume - my scripts status bar  */
+//static const char *mutecmd[] = { "/home/user/.scripts/dwm/set_volume.sh", "mute", NULL };
+//static const char *volupcmd[] = { "/home/user/.scripts/dwm/set_volume.sh", "up", NULL };
+//static const char *voldowncmd[] = { "/home/user/.scripts/dwm/set_volume.sh", "down", NULL };
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -23,12 +23,15 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-#include "/home/user/.cache/wal/colors-wal-dwm.h"
-//static const char *colors[][3]      = {
+
+/* install python-pywall for use this  */
+//#include "/home/user/.cache/wal/colors-wal-dwm.h"
+
+static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-//	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-//};
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+};
 
 /* tagging */
 static const char *tags[] = { "", "", "󰇧", "", "󱜅", "󰚌", "", "", "" };
@@ -85,20 +88,25 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-p", "Run", NULL };
-static const char *networkdmenu[] = { "networkmanager_dmenu", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *lockscreencmd[] = { "betterlockscreen", "-l", "dimblur", NULL };
+
+/*   install betterlock for use this     */
+//static const char *lockscreencmd[] = { "betterlockscreen", "-l", "dimblur", NULL };
+//
+//
+/*  install networkmanager_dmenu for use this   */
+//static const char *networkdmenu[] = { "networkmanager_dmenu", NULL };
 
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                       	XF86XK_AudioLowerVolume, 	spawn, 	{.v = voldowncmd } },
-	{ 0,                       	XF86XK_AudioMute,		spawn, 	{.v = mutecmd } },
-	{ 0,                       	XF86XK_AudioRaiseVolume, 	spawn,	{.v = volupcmd   } },
-	{ MODKEY|ShiftMask,         	XK_x,      spawn,	   {.v = lockscreencmd } },
+	//{ 0,                       	XF86XK_AudioLowerVolume, 	spawn, 	{.v = voldowncmd } },
+	//{ 0,                       	XF86XK_AudioMute,		spawn, 	{.v = mutecmd } },
+	//{ 0,                       	XF86XK_AudioRaiseVolume, 	spawn,	{.v = volupcmd   } },
+	//{ MODKEY|ShiftMask,         	XK_x,      spawn,	   {.v = lockscreencmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,			XK_n,	   spawn,	   {.v = networkdmenu }  },
+	//{ MODKEY,			XK_n,	   spawn,	   {.v = networkdmenu }  },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
